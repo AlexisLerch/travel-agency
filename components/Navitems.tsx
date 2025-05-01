@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router'
 import { sidebarItems } from '~/constants'
 import { cn } from '~/lib/utils'
 
-const NavItems = () => {
+const NavItems = ({ handleClick }: { handleClick?: () => void } ) => {
   const user = {
     name: 'Alexis',
     email: 'alexis.lerch123@gmail.com',
@@ -24,7 +24,7 @@ const NavItems = () => {
                 {({ isActive }: { isActive: boolean }) => (
                   <div className= {cn('group nav-item', {
                     'bg-primary-100 !text-white': isActive,
-                  })}>
+                  })} onClick={handleClick}>
                     <img  src={icon} alt={label} className={`group-hover:brightness-0 size-0 group-hover:invert ${isActive ? 'brightness-0 invert' : 'text-dark-200'}`}/>
                     {label}
                   </div>
